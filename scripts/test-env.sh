@@ -80,7 +80,7 @@ ktf 1>/dev/null
 
 ktf environments create --name "${TEST_ENV_NAME}" --addon metallb # --addon kuma
 
-#kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl apply -f -
+kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0" | kubectl apply -f -
 
 # The steps necessary to get this to work aren't obvious and it's not something
 # the test cares about, so just disable it
