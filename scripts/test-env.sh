@@ -26,7 +26,7 @@ then
     fi
 fi
 
-set -euo pipefail
+set -xeuo pipefail
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd "${SCRIPT_DIR}/.."
@@ -84,7 +84,7 @@ kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v0.4.0"
 
 # The steps necessary to get this to work aren't obvious and it's not something
 # the test cares about, so just disable it
-kubectl patch validatingwebhookconfigurations.admissionregistration.k8s.io kuma-validating-webhook-configuration --patch '{"webhooks": [{"name": "validate.gateway.networking.k8s.io", "failurePolicy": "Ignore"}]}'
+kubectl patch validatingwebhookconfigurations.admissionregistration.k8s.io kuma-validating-webhook-configuration --patch '{"webhooks": [{"name": "validate.gateway.networking.k8s.io/v1", "failurePolicy": "Ignore"}]}'
 
 echo "INFO: Updating helm dependencies"
 helm dependency update charts/kong/
