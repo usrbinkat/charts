@@ -47,5 +47,5 @@ repo with your fork's changes available on your GitHub Pages URL. You can then
 use this with:
 
 ```
-helm repo add kong-fork https://myuser.github.io/charts/
+helm repo add kong https://usrbinkat.github.io/charts/
 ```
