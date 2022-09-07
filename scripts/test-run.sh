@@ -31,32 +31,32 @@ KUBERNETES_VERSION="$($KUBECTL version -o json | jq -r '.serverVersion.gitVersio
 # Deploy Kuma configuration and test namespace
 # ------------------------------------------------------------------------------
 
-echo "---
-apiVersion: kuma.io/v1alpha1
-kind: Mesh
-metadata:
-  name: default
-spec:
-  mtls:
-    backends:
-    - conf:
-        caCert:
-          RSAbits: 2048
-          expiration: 10y
-      dpCert:
-        rotation:
-          expiration: 1d
-      name: ca-1
-      type: builtin
-    enabledBackend: ca-1
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    kuma.io/sidecar-injection: enabled
-  name: ${RELEASE_NAMESPACE}
-" | kubectl --context "kind-${TEST_ENV_NAME}" apply -f -
+#echo "---
+#apiVersion: kuma.io/v1alpha1
+#kind: Mesh
+#metadata:
+#  name: default
+#spec:
+#  mtls:
+#    backends:
+#    - conf:
+#        caCert:
+#          RSAbits: 2048
+#          expiration: 10y
+#      dpCert:
+#        rotation:
+#          expiration: 1d
+#      name: ca-1
+#      type: builtin
+#    enabledBackend: ca-1
+#---
+#apiVersion: v1
+#kind: Namespace
+#metadata:
+#  labels:
+#    kuma.io/sidecar-injection: enabled
+#  name: ${RELEASE_NAMESPACE}
+#" | kubectl --context "kind-${TEST_ENV_NAME}" apply -f -
 
 # ------------------------------------------------------------------------------
 # Deploy Chart - Kubernetes Ingress Controller
