@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.14.0
+
+### Improvements
+
+* I gave up
+
 ## 2.13.0
 
 ### Improvements
